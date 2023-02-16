@@ -1,0 +1,106 @@
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+
+    vK = "theApiKey";
+    function check() {
+        //CHANGE TO PARAM APPROACH
+        var data = jQuery.param({"act":"check","key":vK});
+        var request = $.ajax({
+            type: "POST",
+            url: "https://api3.ashoka.org/servtemp/servertemp.aspx",
+            data: data,
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            processData: false,
+            dataType: "json"
+        });
+        request.done(function (d) {
+            console.log(d);
+            $("#temp").html(parseFloat(d.temp).toFixed(1) + " f");
+            if (d.status == 1) {
+                if (d.pause == 0){
+                    $("#status").html("ALERT ACTIVE");
+                    $("#btnclear").show();
+                } else {
+                    $("#status").html("ALERT PAUSED");
+                    $("#btnclear").hide();
+                }
+            } else {
+                $("#status").html("NORMAL");
+                $("#btnclear").hide();
+            }
+            
+
+        })
+        request.fail(function (c) {
+            console.log(c.responseText);
+            $("#status").html("error connecting with server");
+
+        })
+        request.always(function () {
+
+
+        })
+
+    }
+
+    function clearMe() {
+        //clear alarm
+        console.log("kdkd");
+        var data = jQuery.param({"act":"pause","key":vK});
+        var request = $.ajax({
+            type: "POST",
+            url: "https://api3.ashoka.org/servtemp/servertemp.aspx",
+            data: data,
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            processData: false,
+            dataType: "json"
+        });
+        request.done(function (d) {
+            console.log(d);
+            if (d.status == 1 && d.pause == 1) {
+                $("#status").html("ALERT PAUSED");
+                $("#btnclear").hide();
+            } else {
+                $("#status").html("NORMAL");
+                $("#btnclear").show();
+            }
+            
+
+        })
+        request.fail(function (c) {
+            console.log(c.responseText);
+            $("#status").html("error connecting with server");
+
+        })
+        request.always(function () {
+
+
+        })
+
+    }
+
+    window.onload = function () {
+        check();
+        setInterval(function (){check();}, 30 * 1000);
+
+        
+    }
+
+
+
+</script>
+
+<style>
+    .i{
+        display:none;
+    }
+
+</style>
+<div id="status">     
+</div>
+<div id="temp">     
+</div>
+<input type="button" id="btnclear" value="pause alerts" class="i" onclick="clearMe()" />
+
+
+

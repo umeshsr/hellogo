@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Generated reg-basic.cfg Configuration File -->
+<polycomConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="polycomConfig.xsd">
+<call 
+	call.DefaultTransferType="Blind"
+	call.callsPerLineKey="24">
+</call>
+<dialplan
+	dialplan.digitmap="[2-9]11|RR800R0T|011xxx.T|[0-1][2-9]xxxxxxxxx|[2-9]xxxxxxxxx|[2-9]xxxT|**x.T">
+</dialplan>
+<reg 
+	reg.1.address="[USER0]" 
+	reg.1.auth.password="[PASS0]" 
+	reg.1.auth.userId="[AUTH0]" 
+	reg.1.extension="" 
+	reg.1.displayName="[FULLNAME0]" 
+	reg.1.label="[LABEL0]" 
+	reg.1.outboundProxy.address="sip.onsip.com" 
+	reg.1.pin="" 
+	reg.1.useTelUriAsLineLabel="1" 
+	reg.1.lineKeys="[LINES0]" 
+	reg.1.server.1.address="ashoka.onsip.com" 
+	reg.1.server.1.expires="600"  
+	reg.2.address="[USER1]" 
+	reg.2.auth.password="[PASS1]" 
+	reg.2.auth.userId="[AUTH1]" 
+	reg.2.extension=""
+	reg.2.displayName="[FULLNAME1]" 
+	reg.2.label="[LABEL1]"
+	reg.2.lineKeys="[LINES1]"
+	reg.2.outboundProxy.address="sip.onsip.com" 
+	reg.2.pin="" 
+	reg.2.useTelUriAsLineLabel="1"
+	reg.2.server.1.address="ashoka.onsip.com" 
+	reg.2.server.1.expires="600">
+</reg>
+<msg>
+    <msg.mwi msg.mwi.1.callBackMode="contact" 
+	msg.mwi.1.callBack="vm.[USER0]">
+    </msg.mwi>
+</msg>
+<dir>
+	<dir.corp dir.corp.address="auth.ashoka.org" 
+	dir.corp.auth.useLoginCredentials="0" 
+	dir.corp.autoQuerySubmitTimeout="0" 
+	dir.corp.backGroundSync="0" 
+	dir.corp.backGroundSync.period="86400" 
+	dir.corp.baseDN="ou=Ashoka Accounts,dc=ad,dc=ashoka,dc=lan" 
+	dir.corp.bindOnInit="1" 
+	dir.corp.cacheSize="128" 
+	dir.corp.domain="" 
+	dir.corp.filterPrefix="(objectclass=person)" 
+	dir.corp.pageSize="32" 
+	dir.corp.password="A$h0k@_Poly" 
+	dir.corp.port="389" 
+	dir.corp.scope="sub" 
+	dir.corp.sortControl="0" 
+	dir.corp.transport="TCP" 
+	dir.corp.user="polycom_user@ashoka.org" 
+	dir.corp.viewPersistence="0" 
+	dir.corp.vlv.allow="0" 
+	dir.corp.vlv.sortOrder="cn" 
+	dir.corp.attribute.1.filter="" 
+	dir.corp.attribute.2.filter="" 
+	dir.corp.attribute.1.label="Last Name" 
+	dir.corp.attribute.2.label="First Name" 
+	dir.corp.attribute.1.name="sn" 
+	dir.corp.attribute.2.name="givenName" 
+	dir.corp.attribute.1.searchable="1" 
+	dir.corp.attribute.2.searchable="1" 
+	dir.corp.attribute.1.sticky="0" 
+	dir.corp.attribute.2.sticky="0"	
+	dir.corp.attribute.1.type="last_name" 
+	dir.corp.attribute.2.type="first_name" 
+	dir.corp.attribute.3.filter="" 
+	dir.corp.attribute.3.label="Phone Number" 
+	dir.corp.attribute.3.name="telephoneNumber" 
+	dir.corp.attribute.3.searchable="0" 
+	dir.corp.attribute.3.sticky="0" 
+	dir.corp.attribute.3.type="phone_number" 
+	dir.corp.attribute.4.filter="" 
+	dir.corp.attribute.4.label="Mobile" 
+	dir.corp.attribute.4.name="mobile" 
+	dir.corp.attribute.4.searchable="0" 
+	dir.corp.attribute.4.sticky="0" 
+	dir.corp.attribute.4.type="other" 
+	dir.corp.attribute.5.filter="" 
+	dir.corp.attribute.5.label="Global IP Phone" 
+	dir.corp.attribute.5.name="ipPhone" 
+	dir.corp.attribute.5.searchable="0" 
+	dir.corp.attribute.5.sticky="0" 
+	dir.corp.attribute.5.type="other" 
+	dir.corp.attribute.6.filter="" 
+	dir.corp.attribute.6.label="Local IP Phone" 
+	dir.corp.attribute.6.name="otherTelephone" 
+	dir.corp.attribute.6.searchable="0" 
+	dir.corp.attribute.6.sticky="0" 
+	dir.corp.attribute.6.type="other">
+</dir.corp>
+</dir>
+<feature 
+	feature.corporateDirectory.enabled="1" 
+	feature.enhancedFeatureKeys.enabled="1">
+</feature>
+<softkey 
+	softkey.feature.directories="1">
+</softkey>
+<lcl 
+	lcl.datetime.date.format="MM/DD/YY">
+</lcl>
+<prov 
+	prov.polling.enabled="1" 
+	prov.polling.mode="random" 
+	prov.polling.period="86400" 
+	prov.polling.time="01:00" 
+	prov.polling.timeRandomEnd="03:00">
+</prov>
+<device device.set="1">
+    <device.auth device.auth.localAdminPassword="01123581321">
+      <device.auth.localAdminPassword device.auth.localAdminPassword.set="1"></device.auth.localAdminPassword>
+    </device.auth>
+    <device.net>
+      <device.net.dot1x device.net.dot1x.enabled="1" device.net.dot1x.identity="ashoka\polycom_user" device.net.dot1x.method="EAP-PEAPv0-MSCHAPv2" device.net.dot1x.password="A$h0k@_Poly">
+        <device.net.dot1x.enabled device.net.dot1x.enabled.set="1"></device.net.dot1x.enabled>
+        <device.net.dot1x.identity device.net.dot1x.identity.set="1"></device.net.dot1x.identity>
+        <device.net.dot1x.method device.net.dot1x.method.set="1"></device.net.dot1x.method>
+        <device.net.dot1x.password device.net.dot1x.password.set="1"></device.net.dot1x.password>
+      </device.net.dot1x>
+    </device.net>
+    <device.prov device.prov.serverName="boot.ashoka.org/[LINEUSERS]/[KEY]" device.prov.serverType="3" device.prov.upgradeServer="http://downloads.polycom.com/voice/software/UC_Software_5_5_4_release_sig_split/">
+      <device.prov.serverName device.prov.serverName.set="1"></device.prov.serverName>
+      <device.prov.serverType device.prov.serverType.set="1"></device.prov.serverType>
+      <device.prov.upgradeServer device.prov.upgradeServer.set="1"></device.prov.upgradeServer>
+    </device.prov>
+    <device.sec>
+      <device.sec.TLS device.sec.TLS.customCaCert1="" device.sec.TLS.customCaCert2="MIIFJDCCAwygAwIBAgIQRdu0k88f1rxI3/haFyBOqDANBgkqhkiG9w0BAQsFADAaMRgwFgYDVQQDEw9Qb2x5Y29tIFJvb3QgQ0EwHhcNMDkwMzA5MTgxMjQwWhcNNDQwMzA5MTgxMjQwWjAaMRgwFgYDVQQDEw9Qb2x5Y29tIFJvb3QgQ0EwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCe2KdAqjKLmZyJnKxbLzUaPNZ8lkT2srJlY/6MLi2264YVLP7QB6p9pExx4FxgUHcl4iSGxF64EH29b0ZnReMu/Xp8j9FTdyz/t3MjlMHxpzoWMDhYN7dShrj1okBDiyzp0Z7SSVjQRxlK+rgC6uKlCiTJBEVRpDb6uOudZSBH0QCu6PWjDKROAZwDnQd7AMNQLQimzN6wDmnBGUSYJU8BQAOYKWWg3sEl6Nh7MA3MQ1U+ldzSWPcJWsrrW7LmVBAx9kV/P1CN//EJ9K5ucvIpx2LuKAEGNaQoYEe17zVLY7ii7M6vRfP8aCRPPr3JWAkUnGq9Wg7GOtk6kbePbvrCQczkL9x2P3PMhoT9Ges7BdR51fKNlXOUAjUh0tKTWj6Zm6+iQySpvNptw01M+lfvcDUo6eiIJzByU0C4I2XzYH8A8izXvpARY5fj5uLOpxfXlG/gokKyiFJDmV/cGlRHKlakeb1XR9nWxkBxK04wKxB3Y/u9aC9UvcM3Uax1JLxrIeKTKfUvMOzjalBdIwe6ZvOD8V/wflNkJCIsV/CVnppZnsxXvE6yWKIpIH0Mzz14dqcEJu6GqvaAFHGrSLKO45oaBVGBJ3MoYwDfWxoDZeY6yQVyvc8aDQxMQc9L8TZhFgrldGfbrlUKFvWz8EY3GHQ6RrU2P9CZNHjTer23MQIDAQABo2YwZDATBgkrBgEEAYI3FAIEBh4EAEMAQTALBgNVHQ8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUnRIDadPlOU1jGfC1h7l8sktjmfAwEAYJKwYBBAGCNxUBBAMCAQAwDQYJKoZIhvcNAQELBQADggIBAEMYD7L86EUxOBeX3X4EdGiKOsE1PxirsgHDhjZZjfZuMEGabTecWLGKQOi6tta3fudZ46ZYQjZEPgGZgtNnhE3NeR6MGG3JyhPwNVf7DAd9nyQbVWmPiVMnhA2qR1ZzJFfkwgT3ypOJ+Bqhs0K2876ZAsUHdY0JD3zPO3BPkP8nvrU+5eqcSfguOFs2B+XAPWMWyJ27QTldPbhxS6u7Uo2zZD2UQWd7DAbg9WOx41U1oiDJeivLaFhKRO2p5lem1TNgyKQceZH38kaVCR6pEEs+Me2cvd4LRCdLkpg0usAt6uOA+o6Xc4KJVSmiYiwxGp4BOhq0ltmDERfKxQa0dTXrMtsKV8oUhsMeK6Y9olYVN1Q5cBSXksmmF6xBk7a7EUL6VXdzVFNQhIISQ3VqxLWmc05M7eih/P/PDWG81hpjffSiUiL7EUDzXxT+F9CjDBkGmldoPLS2Ko40TqjYnzIXVAfMdtYKsoSgyIujAgvd+hhrQo2Ypf9sX/N2ZHnbrpVgjJDvD06AC9iaRKiNAd5ZWC7mocuRgLcumy4G9V0KGik705n+DYm9K8Q/zTeRclFW+DIpMUx8JZEJfBuJH6Su3TddP6cqjkh7tsgHYskxXJiq643AVycwuLOx1fgra5Yhr4d78V7SP4vseM0NTqXCDqAu4SwgeoRruqWczSYF">
+        <device.sec.TLS.customCaCert1 device.sec.TLS.customCaCert1.set="0"></device.sec.TLS.customCaCert1>
+        <device.sec.TLS.customCaCert2 device.sec.TLS.customCaCert2.set="1"></device.sec.TLS.customCaCert2>
+      </device.sec.TLS>
+    </device.sec>
+    <device.sntp device.sntp.gmtOffset="-18000" device.sntp.serverName="north-america.pool.ntp.org">
+      <device.sntp.gmtOffset device.sntp.gmtOffset.set="1"></device.sntp.gmtOffset>
+      <device.sntp.serverName device.sntp.serverName.set="1"></device.sntp.serverName>
+    </device.sntp>
+</device>
+</polycomConfig>
